@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.egg-info/
+data/
+output/
+model_weights/
+training_runs/
+processed/
+# the CHROMAS authors' data release, read by build_demo.bat (do not upload)
+Chromas2025.zip
+*.zip
+*.log
+*.bak*
+*.orig
+training_data/

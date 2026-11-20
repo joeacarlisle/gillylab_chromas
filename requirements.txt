@@ -1,0 +1,7 @@
+# CHROMAS (Ukrow, Renard, Moghimi & Laurent, eLife 2025): chromatophore segmentation and tracking.
+# Python 3.12 is required (3.13 does not work: the scikit-image 0.24 pin has no wheel for it). It installs PyTorch (through kornia) and about 40 other packages.
+chromas==0.1.1
+
+# decord reads the video frames in the segmentation step. It is not in the chromas package metadata, but
+# `chromas run` fails with "No module named 'decord'" without it. It has a Windows wheel for Python 3.12.
+decord==0.6.0
