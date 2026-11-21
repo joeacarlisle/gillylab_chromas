@@ -116,8 +116,11 @@ The paper that describes the project is Ukrow, Renard, Moghimi & Laurent, *CHROM
 
 ## Folders
 
-- `data/` input videos (not tracked by git)
-- `output/` CHROMAS results (not tracked by git)
+- `data/` input videos, and the authors' example videos after `build_demo.bat` (not tracked by git)
+- `output/` CHROMAS results: `<name>.zarr`, the chunk videos, and the lookup colour tables `<name>.lookup_table.npz` that the squid dashboard's colour picker saves (not tracked by git)
+- `model_weights/` the trained network `sepia_2classes_fcn_resnet50.pth`, copied here by `build_demo.bat` (not tracked by git)
+- `training_data/` the authors' training images and masks, copied here by `build_demo.bat` (not tracked by git)
+- `extras/` the patches applied by the setup (tracked)
 
 ## Notes
 
@@ -131,7 +134,7 @@ Install both projects in your user directory, side by side (`C:\Users\<your_user
 
 ## Trained weights (neuralnet segmentation)
 
-The chromas package ships without trained weights. `model_weights/sepia_2classes_fcn_resnet50.pth` comes from `Chromas2025.zip` (Edmond, doi 10.17617/3.MJI3HA); the squid project's bridge passes it to `chromas run --weights` for the `neuralnet` method. The `lookup` method needs no weights. 
+The chromas package ships without trained weights, and this repository does not contain them either. `model_weights/sepia_2classes_fcn_resnet50.pth` comes from `Chromas2025.zip` (Edmond, doi 10.17617/3.MJI3HA) and is put there by `build_demo.bat` (below). The squid project's bridge passes it to `chromas run --weights` for the `neuralnet` method; if the file is missing, a `neuralnet` run stops with a message. The `lookup` and `randomforest` methods need no downloaded weights (a random forest needs a model you train yourself).
 
 **Example data.** The zip also holds the authors' example videos and training images. None of it is in this repository. Download `Chromas2025.zip` from https://doi.org/10.17617/3.MJI3HA (check the licence there first), then run `build_demo.bat` (put the zip in this folder or in your Downloads folder, or pass its path: `build_demo.bat "C:\path\Chromas2025.zip"`). It unpacks the zip and copies the weights to `model_weights\`, the example videos and dataset to `data\`, and the training images and masks to `training_data\`. All three folders are ignored by git.
 
